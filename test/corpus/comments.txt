@@ -1,0 +1,91 @@
+==================
+Simple comment line
+==================
+
+@startuml
+' This is a comment
+System(foo, "bar")
+@enduml
+
+---
+
+(diagram
+  (comment)
+  (procedure
+    (procedure_identifier)
+    (argument_list
+      (identifier)
+      (string)
+    )
+  )
+)
+
+==================
+Single quote inside double-quoted string should not start comment
+==================
+
+@startuml
+System(foo, "This string contains 'single quotes' inside")
+System(bar, "Another string with 'apostrophes' and stuff")
+@enduml
+
+---
+
+(diagram
+  (procedure
+    (procedure_identifier)
+    (argument_list
+      (identifier)
+      (string)
+    )
+  )
+  (procedure
+    (procedure_identifier)
+    (argument_list
+      (identifier)
+      (string)
+    )
+  )
+)
+
+==================
+Comment after string with single quotes
+==================
+
+@startuml
+System(foo, "String with 'quotes' inside")
+' This is a comment
+@enduml
+
+---
+
+(diagram
+  (procedure
+    (procedure_identifier)
+    (argument_list
+      (identifier)
+      (string)
+    )
+  )
+  (comment)
+)
+
+==================
+Normal single-quoted string (not comment)
+==================
+
+@startuml
+System(foo, 'normal string in single quotes')
+@enduml
+
+---
+
+(diagram
+  (procedure
+    (procedure_identifier)
+    (argument_list
+      (identifier)
+      (single_quote_string)
+    )
+  )
+)

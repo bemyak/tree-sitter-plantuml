@@ -6,7 +6,8 @@ module.exports = grammar({
       choice(
         $._startend,
         $.preprocessor,
-        $.procedure
+        $.procedure,
+        $.comment
       )
     ),
     _startend: $ => choice(
@@ -55,6 +56,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $.string,
+      $.single_quote_string,
       $.named_parameter,
     ),
     named_parameter: $ => seq(
@@ -65,6 +67,7 @@ module.exports = grammar({
     identifier: $ => /\$?\w+_*/,
     string: $ => /"[^"]*?"/,
     single_quote_string: $ => /'[^']*?'/,
+    comment: $ => /'[^\n\r]*/,
     unqouted_string: $ => /[,\s\[]*.+[,\s\]$]+/,
   }
 });
