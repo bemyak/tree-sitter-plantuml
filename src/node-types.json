@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "single_quote_string",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         }
@@ -40,11 +44,16 @@
   {
     "type": "diagram",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
         {
           "type": "preprocessor",
           "named": true
@@ -174,6 +183,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -183,6 +196,10 @@
   },
   {
     "type": "procedure_identifier",
+    "named": true
+  },
+  {
+    "type": "single_quote_string",
     "named": true
   },
   {
